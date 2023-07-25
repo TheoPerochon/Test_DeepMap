@@ -2,175 +2,111 @@
 DeepCellMap
 """""""""""""""""
 
-DeepCellMap est le package associé à l'article "Spatiotemporal mapping of human microglia during brain development with advanced spatial statistics assisted by deep-learning". 
+Algorithms associated with the submission of the paper titled "Spatiotemporal mapping of human microglia during brain development with advanced spatial statistics assisted by deep-learning" to Nature Methods. 
 
-.. image:: path/filename.png
-  :width: 400
+.. image:: ___MAYBE_SOMEWHERE___COVER_FIGURE.png
+  :width: 1000
   :alt: Alternative text
+
+This directory contains all the source code needed to reproduce the results of the paper using different notebooks (doc/src/notebooks). Some intermediate results have been provided (doc/data) to speed up the calculation of spatiotemporal statistics on several pre-defined regions of interest. 
+
+Below is a description of the notebooks, .py files and data provided to conduct the experiments. 
 
 .. contents:: Overview
    :depth: 3
 
 ===================
-Section 1
+Data
 ===================
 
-Text can be *italicized* or **bolded**  as well as ``monospaced``.
-You can \*escape certain\* special characters.
 
 ----------------------
-Subsection 1 (Level 2)
+Input  
 ----------------------
 
-Some section 2 text
+- 3 IHC images of human fetal brain at 17,19 and 20 pcw. 
+- Model classification microglial cells 
+----------------------
+Intermediate results 
+----------------------
 
-Sub-subsection 1 (level 3)
---------------------------
-
-Some more text.
+- Segmented & classified cells for the three IHC images. 
+- Masks of the 4 anatomical regions (striatum, neocortex, cordical boundary, ganglionic eminence) for the three times. 
 
 =========
-Examples
+Code 
 =========
 
+
+-----------------
+Notebooks 
+-----------------
+
+
+DeepCellMap notebook 1 
+-----------------
+freg
+
+
 --------
-Comments
+Python files details 
 --------
+Python files used in the notebooks 
 
-.. This is a comment
-   Special notes that are not shown but might come out as HTML comments
 
-------
-Images
-------
+General
+----------
 
-Add an image with:
+:const.py: grg r
+:const_roi.py: regreg
+:util.py: gregre
 
-.. image:: screenshots/file.png
-   :height: 100
-   :width: 200
-   :alt: alternate text
+Region of interest (central)
+-----------
 
-You can inline an image or other directive with the |customsub| command.
+:region_of_interest.py: greg
 
-.. |customsub| image:: image/image.png
-              :alt: (missing image text)
+Image processing & Deep learning
+-----------
 
------
-Lists
------
+:slide.py: 
+:filter.py: 
+:tiles.py: 
+:Model_Segmentation.py: 
+:util_classification.py: 
+:Model_Classification.py: 
+:labeling.py: 
 
-- Bullet are made like this
-- Point levels must be consistent
-    * Sub-bullets
-        + Sub-sub-bullets
-- Lists
 
-Term
-    Definition for term
-Term2
-    Definition for term 2
+Statistics
+-----------
+:colocalisation_analysis.py: 
+:dbscan.py: 
+:neighbours_analysis.py: 
 
-:List of Things:
-    item1 - these are 'field lists' not bulleted lists
-    item2
-    item 3
 
-:Something: single item
-:Someitem: single item
+Cellpose
+-----------
 
------------------
-Preformatted text
------------------
+:util_cellpose.py: 
 
-A code example prefix must always end with double colon like it's presenting something::
 
-    Anything indented is part of the preformatted block
-   Until
-  It gets back to
- Allll the way left
+Spatiotemporal analysis
+-----------
 
-Now we're out of the preformatted block.
+:util_temporal_analysis.py: 
+:temporal_analysis.py: 
 
-------------
-Code blocks
-------------
-
-There are three equivalents: ``code``, ``sourcecode``, and ``code-block``.
-
-.. code:: python
-
-   import os
-   print(help(os))
-
-.. sourcecode::
-
-  # Equivalent
-
-.. code-block::
-
-  # Equivalent
-
------
-Links
------
-
-Web addresses by themselves will auto link, like this: https://www.devdungeon.com
-
-You can also inline custom links: `Google search engine <https://www.google.com>`_
-
-This is a simple link_ to Google with the link defined separately.
-
-.. _link: https://www.google.com
-
-This is a link to the `Python website`_.
-
-.. _Python website: http://www.python.org/
-
-This is a link back to `Section 1`_. You can link based off of the heading name
-within a document.
-
----------
-Footnotes
----------
-
-Footnote Reference [1]_
-
-.. [1] This is footnote number one that would go at the bottom of the document.
-
-Or autonumbered [#]
-
-.. [#] This automatically becomes second, based on the 1 already existing.
-
------------------
-Lines/Transitions
------------------
-
-Any 4+ repeated characters with blank lines surrounding it becomes an hr line, like this.
 
 ====================================
 
-------
-Tables
-------
 
-+--------+--------+--------+
-| Time   | Number | Value  |
-+========+========+========+
-| 12:00  | 42     | 2      |
-+--------+--------+--------+
-| 23:00  | 23     | 4      |
-+--------+--------+--------+
-
-----------------------
-Preserving line breaks
-----------------------
-
-Normally you can break the line in the middle of a paragraph and it will
-ignore the newline. If you want to preserve the newlines, use the ``|`` prefix
-on the lines. For example:
-
-| These lines will
-| break exactly
-| where we told them to.
-https://docs.readthedocs.io/en/stable/tutorial/
++--------+--------+
+| Image   | Post-conceptional-week |
++========+========+
+| 001.tif  | 17  | 
++--------+--------+
+| 002.tif  | 19   |
++--------+--------+
+| 003.tif | 20  | 
++--------+--------+
