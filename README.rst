@@ -28,18 +28,25 @@ Input
 Intermediate results provided
 ----------------------
 
-- Segmented & classified cells for the three IHC images. 
+- Segmented & classified cells for the three IHC images.
+
+Resultat de l'application du model de segmentation et de classification des cellules microgliales à l'ensemble des images. Cet output peut être généré dans ``DeepCellMap_notebook_1``.d mais prend du temps (entre 7h/image et 30h/image selon la machine et la taille de l'image). 
 - Masks of the 4 anatomical regions (striatum, neocortex, cordical boundary, ganglionic eminence) for the three times. 
+- Mask of a manually segmented region. Ce Resultat peut être reproduis avec le notebook 
 
 =========
 Code 
 =========
 
 -----------------
-Notebooks 
+Notebooks description
 -----------------
 
-DeepCellMap notebook 1 - Image preprocessing and cells segmentation & classification
+**Notes sur les notebooks :** Les DeepCellMap notebooks 1/2/3 servent à guider pas à pas dans l'application du pipeline à toutes les images. 
+
+
+
+DeepCellMap_Pipeline_1 - Image preprocessing and cells segmentation & classification
 -----------------
 
 Performs the different steps
@@ -47,9 +54,9 @@ Performs the different steps
 - a.Image downscaling
 - b.Mask extraction
 - c.Tiling 
-- d.Cells classification on the whole slide
+- d.Cells classification on the entire images
 
-DeepCellMap notebook 2 -  Selection different ROIs and computation statistics
+DeepCellMap_Pipeline_2 -  Selection different ROIs and computation statistics
 -----------------
 
 Performs the different steps 
@@ -60,14 +67,34 @@ Performs the different steps
 - e.DBSCAN-based clusters analysis
 - f.Neighbors analysis
 
-DeepCellMap notebook 3 -  Spatiotemporal analysis
+DeepCellMap_Pipeline_3 -  Spatiotemporal analysis
 -----------------
 Performs the different steps :
 - a.Selection of regions to compare over time 
 - b.Generation of statistical figures 
 
+DeepCellMap_x_Cellpose_region_segmentation
+-----------------
+Performs the different steps :
+- a.Cellpose best model selection 
+- b.Cellpose application on the entire images
+- c.Anatomical region segmentation using image processing 
+
+
+DeepCellMap_x_Manual_region_segmentation 
+-----------------
+Performs the different steps :
+- a.Manual selection of a ROI 
+
+MAYBE - DeepCellMap_Training_set_construction
+-----------------
+Performs the different steps :
+- a.Random selection of microglial cells in an image 
+- b.Annotation of the different cells 
+- c.Visualisation and correction
+
 --------
-Python files details 
+Python files description 
 --------
 Python files used in the notebooks 
 
@@ -75,8 +102,8 @@ Python files used in the notebooks
 General
 ----------
 
-:const.py: Contient toutes les constantes et paramètres du projet 
-:const_roi.py: Configuration for ROI definition 
+:const.py: Contains all project constants and parameters 
+:const_roi.py: ROI definition 
 :util.py: Displaying functions, paths/image manipulation, measurement calculation time 
 
 Region of interest (central)
